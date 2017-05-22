@@ -1,0 +1,24 @@
+{
+  "name": "alura",
+  "version": "1.0.0",
+  "description": "Website to learn alphabets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hikkary/alura.git"
+  },
+  "keywords": [
+    "alura",
+    "learn",
+    "languages"
+  ],
+  "author": "zkerkeb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hikkary/alura/issues"
+  },
+  "homepage": "https://github.com/hikkary/alura#readme"
+}
