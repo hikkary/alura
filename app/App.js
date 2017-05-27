@@ -1,23 +1,98 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  Button,
+  Alert
+} from 'react-native';
+import { NativeRouter, Route, Link } from 'react-router-native'
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
+import { Constants } from 'expo';
+
+const fr = ['bonjour', 'merci', 'comment allez vous ?', 'Viande'];
+const ko = ['안녕하세요', '고맙습니다', '잘 지냈어 요?', '고기'];
+
+export default class App extends Component {
+// <NativeRouter>
+//
+// </NativeRouter>
 }
 
+
 const styles = StyleSheet.create({
-  container: {
+  title: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#ecf0f1'
   },
+  paragraph: {
+    margin: 24,
+    fontSize: 50,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#34495e'
+  }
 });
+
+state = {
+  lang: 'fr',
+  content: fr,
+  index: 0,
+  learning: ko,
+  currentWord: null
+};
+
+componentDidMount() {
+  console.log('debut');
+
+  this.getRandomWord();
+  console.log(this.state);
+}
+
+getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+// switchLang = () => {
+//   this.setState({
+//     learning: this.state.content,
+//     content: this.state.learning
+//   });
+//   this.setState({ currentWord: this.state.learning[this.state.randomInt] });
+// };
+//
+// getRandomWord = () => {
+//   this.setState({
+//     randomInt: this.getRandomInt(1, this.state.learning.length)
+//   });
+//   this.setState({ currentWord: this.state.learning[this.state.randomInt] });
+// };
+//
+// render() {
+//   return (
+//     <View style={styles.title}>
+//       <Text style={styles.paragraph}>
+//         ALURA
+//       </Text>
+//
+//       <View style={styles.title}>
+//         <TouchableWithoutFeedback onPress={this._change}>
+//           <View>
+//           <Text onPress={this.switchLang} style={styles.paragraph}>
+//             {this.state.currentWord}
+//           </Text>
+//           </View>
+//         </TouchableWithoutFeedback>
+//         <Button title="show solution" onPress={this._handleButtonPress} />
+//         <Button title="Random Word" onPress={this.getRandomWord} />
+//         <Button title="Press me" onPress={this.switchLang} />
+//
+//       </View>
+//
+//     </View>
+//   );
+// }
